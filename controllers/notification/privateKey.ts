@@ -1,0 +1,13 @@
+export const privateKey = {
+    "type": "service_account",
+    "project_id": "clean-city-d4e97",
+    "private_key_id": "d0a0a58c7c211affcec34dc6380b0f0cd585b8fd",
+    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCzQkPPo95wG8CZ\nNcBQJHCN88LKXu+BV2ShebSvU7I/1H944csyS19YBiuo6YGGU27ks/ocCWYWp2N3\ngihwjEdXWtrxUIbMsUDS0dRheRAv/JJHMiussdAsC4+0H0GP88RyTk1ymXAo+FcM\nzNToP6AUwFf7GcMeL6tDRw5cFkFiCjA7cut7H1ffYKpDuFfVjOw3kJm209s6QIDJ\nc5gp4cJ8FUVxkASRFz1JtPWkeIIRDd3VUX3BuxD/0pH+qhIxPJNAr3r/qp9Nlxac\nWKN5x9L6CjrQIovDQ+Lp5hqrEDSWWJk2AcxvcR6JdcMtGXyU6O6c6Hz19eCZzORa\n0kZiaEPBAgMBAAECggEAGppU8fXBxyV3OcWOWtZtlcN9PwdDyBAuMQCc3gAvzeU9\nXbU0sKwa5DdWN2UgAc1UAcDr90k1y1rgGhZI5hsLY11qbLGkr7AGjMLzH9wVmOmE\n0+gQLzrcSA0XMIYK9tAYcVZJjB5VVN82HAIx/p2ipjG9XNh/6nTsl7lt2iC7Z08X\nlNu6FdqnHi3hNpeBDGd5MVIOWMQj2hv+3Z9r/E+QvVMV1XXFHAer6tpngg2V0Y3w\nIr/DN3K3zoPsiseCCI9vOdZGshNc3ShMN5X8fROo2sJ3Z84sQBnM/xt9zC+HtcoE\n6+ZO8u+KqagGA3DQq4wq/LcDOtn4157H+doY5FULWQKBgQD15+SH1l08xNUCSgts\nfGUSzlum/8RooNb0gtiohxLwoGTrXLSeeBe1JAjpZlly1Uhgu+LUAAwectYXxDOD\nFkLId9prPQ+zIFGJDE/fW/HzunT/4jZiFqd89j6NS4UHe+H144hJ6fQ9t5roLslr\nT1I8A9NQOj+0PrDsujMJtCYQmwKBgQC6ngLBugGeopmR2mMSTlmo2pDRXuyVBVVO\nvzOOhIziQliegJLlLoIjlhuWaru6BzAmfAi/kkEaNew8WuO3y9DKERIc2986SNNj\nWLOkL/DGLfcxf85CrBVJ+Ymgphon22erOH1UlaLYDLDoe+VORlsymd9SsSbIjn+G\nUwZy/xD80wKBgQCkr7girRLmZuBNVy+NaUX7sU46aqKse8NaH+NgAo5RrunHot+o\nHb+q5cY+IfiX6nU9q7c+ygVTww7U/eaNzTPOtE4Ice14xpU0lpVLfnVtCJvg3ywS\nxx9GllfQIxqlp3buSYL2FYQobTWGeAcXIhlt7hXwbgJKAY5WDGGwBwFTLwKBgCBD\nJPLc9163eZkviiUmCnYYoySvJnN04pSklYM0Ay8yjSOJ0ttwOOtyDf7pIN8+UuK0\nWsbTwBGJ9PdSN0AVKllkrh7zHBp1cKYiNZxS9Wstkyipkb0RBvUtANAXJzpwwfFl\n6LTw0aBMQWFP2gq4Oxf6ZhNjsPLHP+C3BcxnsEYlAoGBALTnO7lD/QmXoZhUjYmS\n3XgTYGfl5tkE7bsiY3dK4knfDhM5HvyKVbFVHzqlez8+p88s2ti6PG/ZD4GgT6kA\nW3/F1Z2xI0YRyh92pvUeaDyKYsY/X7hTRhrz7uMdVfzNGSdb5qiYu2DeVu+pn5Yk\n25rGI9hpQ/TusKaJgSfhadTe\n-----END PRIVATE KEY-----\n",
+    "client_email": "firebase-adminsdk-pp0qy@clean-city-d4e97.iam.gserviceaccount.com",
+    "client_id": "104440920438428035549",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-pp0qy%40clean-city-d4e97.iam.gserviceaccount.com",
+    "universe_domain": "googleapis.com"
+  }
