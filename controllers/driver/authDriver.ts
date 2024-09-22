@@ -9,7 +9,7 @@ export const authDriver = async (req: Request, res: Response) => {
     try {
         const response = await axios.get<DriverResponse>(BASE_URL_DRIVER, {
             headers: {
-                'x-api-key': process.env.API_KEY
+                'x-api-key': "b54c58a4-xair-6626-kqmk-5be7b0991a2b"
             }
         });
 
