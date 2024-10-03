@@ -7,8 +7,7 @@ import { BASE_URL_CITIZEN } from '../../server/base_urls';
 import { CitizenResponse } from '../../model/CitizenResponse';
 
 export const notifyStartCitizen = async (req: Request, res: Response) => {
-  const { idRoute } = req.body;
-
+  const { idRoute } = req.query;
   try {
     const response = await axios.get<CitizenResponse>(BASE_URL_CITIZEN, {
       headers: {

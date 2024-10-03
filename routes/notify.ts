@@ -15,9 +15,8 @@ router.post(
     [formdata.fields([])],
     notifyNearbyCitizen,
 );
-router.post(
+router.get(
     "/notifyStartCitizen",
-    [formdata.fields([])],
     notifyStartCitizen,
 );
 
