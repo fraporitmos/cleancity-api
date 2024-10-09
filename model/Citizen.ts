@@ -10,4 +10,5 @@ export type Citizen = {
     token: string;
     updated: string;
     idRoute:string;
+    radius:string;
 };

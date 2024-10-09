@@ -1,29 +1,22 @@
 import {Router} from 'express';
 import { notifyNearbyCitizen } from '../controllers/citizen/notifyNearbyCitizen';
-import { authDriver } from '../controllers/driver/authDriver';
 import { notifyStartCitizen } from '../controllers/citizen/notifyStartTraking';
+import { reportMap } from '../controllers/report/reportMap';
 
 
-
-let multer = require('multer');
-let formdata = multer();
 
 const router = Router();
 
-router.post(
+router.get(
     "/notifyNearbyCitizen",
-    [formdata.fields([])],
     notifyNearbyCitizen,
 );
 router.get(
     "/notifyStartCitizen",
     notifyStartCitizen,
 );
-
-router.post(
-    "/authDriver",
-    [formdata.fields([])],
-    authDriver,
+router.get(
+    "/report",
+    reportMap,
 );
-
 export default router;

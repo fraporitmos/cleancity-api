@@ -2,7 +2,6 @@ import express,{Application} from 'express';
 import cors from 'cors';
 import notify from '../routes/notify';
 import path from "path";
-const locationDriver = require('../socket/location_driver');
 
 class Server {
     private app: Application;
@@ -19,9 +18,7 @@ class Server {
         this.app.use(express.static("public"));
     }
 
-    socket() {
-        locationDriver(this.io);
-    }
+
     constructor(){
         this.app = express();
         this.port = process.env.PORT || '6060';
@@ -34,7 +31,6 @@ class Server {
           });
         this.middleware();
         this.routes();
-        this.socket();
 
     }
 

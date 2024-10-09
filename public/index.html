@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report with Google Maps</title>
+    <link rel="stylesheet" href="style.css"> <!-- Archivo CSS -->
+</head>
+<body>
+    <div id="map"></div>
+    <button id="actionButton">Click Me</button>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgetU5d2H1_lqNl60Kl-UTOsaK9uTyddU&libraries=visualization&callback=initMap" async defer></script>
+
+
+    <script>
+        let heatmap;
+
+        // Definir el estilo personalizado
+        const customMapStyle = [
+            {
+                "featureType": "all",
+                "stylers": [
+                    { "saturation": 0 },
+                    { "hue": "#e7ecf0" }
+                ]
+            },
+            {
+                "featureType": "road",
+                "stylers": [
+                    { "saturation": -70 }
+                ]
+            },
+            {
+                "featureType": "transit",
+                "stylers": [
+                    { "visibility": "off" }
+                ]
+            },
+            {
+                "featureType": "poi",
+                "stylers": [
+                    { "visibility": "off" }
+                ]
+            },
+            {
+                "featureType": "water",
+                "stylers": [
+                    { "visibility": "simplified" },
+                    { "saturation": -60 }
+                ]
+            }
+        ];
+
+        function initMap() {
+            const mapOptions = {
+                center: { lat: -7.222777, lng: -79.425835 },  // Coordenadas de Chepén, La Libertad, Perú
+                zoom: 15.2,
+                styles: customMapStyle  // Aplicar el estilo personalizado
+            };
+            map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+            // Llamar a la función fetchData por primera vez y luego cada 1 minuto
+            fetchData();
+            setInterval(fetchData, 10000);  // Actualizar cada 1 minuto
+        }
+
+        // Función para hacer el fetch de datos y actualizar el heatmap
+        function fetchData() {
+            // Llamada al primer endpoint
+            fetch('https://viralmovie.fraporitmos.com/api/collections/report/records')
+                .then(response => response.json())
+                .then(data => {
+                    // Crear un array de objetos LatLng para el heatmap
+                    const heatmapData = data.items.map(item => {
+                        return new google.maps.LatLng(parseFloat(item.latitude), parseFloat(item.longitude));
+                    });
+
+                    // Si el heatmap ya existe, lo eliminamos antes de crear uno nuevo
+                    if (heatmap) {
+                        heatmap.setMap(null);
+                    }
+
+                    // Crear el Heatmap Layer
+                    heatmap = new google.maps.visualization.HeatmapLayer({
+                        data: heatmapData,
+                        map: map
+                    });
+
+                    // Opcional: Ajustar la opacidad y el radio del heatmap
+                    heatmap.set('radius', 20);  // Ajusta el radio de los puntos
+                    heatmap.set('opacity', 0.6);  // Ajusta la opacidad
+                })
+                .catch(error => console.error('Error fetching data:', error));
+
+            // Llamada al segundo endpoint para el marcador rojo
+            fetch('https://viralmovie.fraporitmos.com/api/collections/collector/records')
+                .then(response => response.json())
+                .then(data => {
+                    const item = data.items[0]; // Tomamos el primer (y único) elemento
+                    const markerPosition = { lat: parseFloat(item.latitude), lng: parseFloat(item.longitude) };
+                    console.log("actualizado gogog")
+                    // Crear un marcador rojo
+                    new google.maps.Marker({
+                        position: markerPosition,
+                        map: map,
+                        title: "Collector Point",
+                        icon: {
+                            url: 'camion.png',
+                            scaledSize: new google.maps.Size(50, 50)
+                        }
+                    });
+                })
+                .catch(error => console.error('Error fetching collector data:', error));
+        }
+     
+    </script>
+    <script src="app.js"></script>
+</body>
+</html>
