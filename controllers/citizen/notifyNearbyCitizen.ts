@@ -10,13 +10,13 @@ import { Citizen } from '../../model/Citizen';
 import { CitizenResponse } from '../../model/CitizenResponse';
 
 export const notifyNearbyCitizen = async (req: Request, res: Response) => {
-  const { data , idCollector} = req.query;
-  const location = processGNRMC(data)!!
+  const { data , idCollector, lat, lng} = req.query;
+  var location = processGNRMC(data,lat,lng)!!
 
   if (!location.latitude && !location.longitude) {
-    return res.status(400).json({ msg: 'La ubicación en formato gnrmc son requeridas' });
+     return res.status(400).json({ msg: 'La ubicación en formato gnrmc son requeridas' });
   }
-
+  
   updateCoordinatesInPocketBase(idCollector, location)
 
   try {
@@ -120,17 +120,28 @@ function convertNMEAtoDecimal(coordinate: string, direction: string): number {
   return decimal;
 }
 
-function processGNRMC(data: any): Coordinate | null {
-  const parts = data.split(',');
-  if (parts[2] === 'A') {
-    const latitude = convertNMEAtoDecimal(parts[3], parts[4]);
-    const longitude = convertNMEAtoDecimal(parts[5], parts[6]);
+function processGNRMC(data: any, lat:any, lng:any): Coordinate | null {
+  if(data != undefined){
+    const parts = data.split(',');
+    if (parts[2] === 'A') {
+      const latitude = convertNMEAtoDecimal(parts[3], parts[4]);
+      const longitude = convertNMEAtoDecimal(parts[5], parts[6]);
+      return {
+        latitude,
+        longitude,
+      };
+    }else{
+      return null;
+    }
+  }else {
+    var latitude = parseFloat(lat)
+    var longitude = parseFloat(lng)
+
     return {
       latitude,
-      longitude,
-    };
-  } else {
-    console.log('Datos no válidos.');
-    return null;
+      longitude
+    }
   }
 }
+
+ 

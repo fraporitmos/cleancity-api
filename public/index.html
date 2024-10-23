@@ -8,9 +8,24 @@
 </head>
 <body>
     <div id="map"></div>
-    <button id="actionButton">Click Me</button>
+    <button id="actionButton">Actualizar</button>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgetU5d2H1_lqNl60Kl-UTOsaK9uTyddU&libraries=visualization&callback=initMap" async defer></script>
+
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_drawer"
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="?attr/background_color"
+        app:headerLayout="@layout/drawer_header"
+        app:itemIconTint="@color/item_selector"
+        app:itemTextAppearance="@style/list_item_appearance"
+        app:itemTextColor="@color/item_selector"
+        app:menu="@menu/menu_drawer"
+        app:theme="@style/list_item_appearance" />
+
 
 
     <script>
